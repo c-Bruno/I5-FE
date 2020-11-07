@@ -1,0 +1,26 @@
+#nav {
+    height: 65px;
+    width: 100%;
+    padding: 6px;
+    position: fixed;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 19%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    z-index: 1;
+    background-color: rgb(130, 44, 44);
+}
+
+#nav a, #nav button {
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+#nav a:hover, #nav button:hover {
+    color: #d0d0d0;
+}
+
+.nav-item {
+    margin-left: 25px;
+}
+
+.nav-item a {
+    font-size: 25px!important;
+}
