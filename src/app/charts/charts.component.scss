@@ -1,20 +1,29 @@
 .center-chart {
     overflow: auto;
-    margin: auto;
-    padding-top: 30px;
-    width: 100%;
-    height: 100%;
-    padding: 0px;
+    padding-top: 15px;
+    height: calc(100%);
+    width: calc(100%);
 }
 
 .filters {
-    background-color: blue;
+    background-color: #0D1418;
+    color: white;
+    text-align: center;
     width: 100%;
     height: 100%;
 }
 
 .chart {
-    background-color: green;
+    background-color: #2A2F32;
     width: 100%;
     height: 100%;
+}
+
+.row{
+    height: calc(100%);
+    width: calc(100%);
+}
+
+input{
+
 }

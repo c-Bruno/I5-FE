@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedVariableService } from '../shared/shared-variable.service';
 
 @Component({
   selector: 'app-sugestions',
@@ -7,16 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SugestionsComponent implements OnInit {
 
-  constructor() { }
+  public motivos: any;
+  public itemForm: any;
 
-  public motivos = [
-    { id: 1, name: 'Consulta' },
-    { id: 2, name: 'Curiosidade' },
-    { id: 3, name: 'Estudo' },
-    { id: 4, name: 'Pesquisa' },
-    { id: 4, name: 'Trabalho' },
-    { id: 4, name: 'Outros' },
-  ];
+  constructor(
+    private sharedVariableService: SharedVariableService,
+  ) {
+    this.motivos = this.sharedVariableService.getMotivos();
+   }
 
   ngOnInit(): void {
   }
