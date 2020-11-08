@@ -11,6 +11,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { SnackbarModule } from 'ngx-snackbar';
 import { NgxMaskModule } from 'ngx-mask';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ChartsModule } from 'ng2-charts';
 
 // components
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +45,8 @@ import { AboutComponent } from './about/about.component';
     NgxMaskModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

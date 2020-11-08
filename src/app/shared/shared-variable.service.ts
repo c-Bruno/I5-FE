@@ -47,11 +47,11 @@ export class SharedVariableService {
 
   getAno(): any[]{
     const anos = [
-      { ano : 2012 },
-      { ano : 2013 },
-      { ano : 2014 },
-      { ano : 2015 },
-      { ano : 2016 },
+      // { ano : 2012 },
+      // { ano : 2013 },
+      // { ano : 2014 },
+      // { ano : 2015 },
+      // { ano : 2016 },
       { ano : 2017 },
       { ano : 2018 },
       { ano : 2019 },
