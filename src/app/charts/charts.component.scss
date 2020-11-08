@@ -3,6 +3,7 @@
     padding-top: 15px;
     height: calc(100%);
     width: calc(100%);
+    overflow: auto;
 }
 
 .filters {
@@ -11,12 +12,14 @@
     text-align: center;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .chart {
     background-color: #2A2F32;
     width: 100%;
     height: 100%;
+    overflow: auto;
 }
 
 .row{
@@ -24,6 +27,11 @@
     width: calc(100%);
 }
 
-input{
+h4 {
+    padding: 40px;
+}
 
+.form-group{
+    padding: 10px;
+    margin: auto;
 }

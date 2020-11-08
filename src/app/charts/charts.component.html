@@ -2,18 +2,57 @@
     <div class="center-chart">
         <div class="row">
             <div class="filters col-md-3">
-                <form>
+                <form [formGroup]="itemForm">
                     <div class="">
-                        Personalize sua busca: 
-                        <input class="form-control" type="text" maxlength="100" formControlName="mes" placeholder="Mês">
-                        <input class="form-control" type="text" maxlength="100" formControlName="ano" placeholder="Ano">
-                        <input class="form-control" type="date" maxlength="100" formControlName="dataOcorrido" placeholder="Data do ocorrido">
-                        <input class="form-control" type="text" maxlength="100" formControlName="periodo" placeholder="Periodo">
-                        <input class="form-control" type="text" maxlength="100" formControlName="cidade" placeholder="Cidade">
-                        <input class="form-control" type="text" maxlength="100" formControlName="estado" placeholder="Estado">
-                        <input class="form-control" type="text" maxlength="100" formControlName="sexo" placeholder="Sexo">
-                        <input class="form-control" type="text" maxlength="100" formControlName="flagrante" placeholder="Flagrante">
-                        <input class="form-control" type="text" maxlength="100" formControlName="delegacia" placeholder="Delegacia">
+                        <h4>Personalize sua busca:</h4>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="mes" name="mes" placeholder="Mês">
+                                <ng-option *ngFor="let mes of meses" [value]="mes.mes">{{ mes.mes }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="ano" name="ano" placeholder="Ano">
+                                <ng-option *ngFor="let ano of anos" [value]="ano.ano">{{ ano.ano }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="date" maxlength="100" formControlName="dataOcorrido" placeholder="Data do ocorrido">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="periodo" placeholder="Periodo">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="cidade" placeholder="Cidade">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="estado" name="estado" placeholder="Estado">
+                                <ng-option *ngFor="let estado of estados" [value]="estado.state">{{ estado.state }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="sexo" name="sexo" placeholder="Sexo">
+                                <ng-option *ngFor="let sexo of sexos" [value]="sexo.sexo">{{ sexo.sexo }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="flagrante" placeholder="Flagrante">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="delegacia" placeholder="Delegacia">                           
+                        </div>
+
+
+                        <button class="btn btn-dark ml-3 mt-3 pull-right"><i class="fas fa-check-circle"></i>Filtrar</button>
+                        <input class="btn btn-dark ml-3 mt-3 pull-right" type="reset" value="Limpar">
                     </div>
                 </form>
             </div>
