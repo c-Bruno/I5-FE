@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./methodology.component.scss']
 })
 export class MethodologyComponent implements OnInit {
+  public isCollapsed = true;
+  constructor() {}
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }
