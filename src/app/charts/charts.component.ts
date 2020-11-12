@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedVariableService } from '../shared/shared-variable.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ApiService } from '../shared/api.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-charts',
@@ -15,9 +17,13 @@ export class ChartsComponent implements OnInit {
   public sexos: any;
   public itemForm: any;
 
+  //testes json
+  public dataJson: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private sharedVariableService: SharedVariableService,
+    private apiService: ApiService
   ) {
     this.meses = this.sharedVariableService.getMes();
     this.anos = this.sharedVariableService.getAno();
@@ -41,6 +47,27 @@ export class ChartsComponent implements OnInit {
       flagrante: [''],
       delegacia: [''],
     });
+  }
+
+  loadJson(): void {
+    this.apiService.getJSON().subscribe(data => {
+      this.dataJson = data;
+    });
+  }
+
+  salvar() {
+    let cont = 1;
+    this.dataJson.forEach(element => {
+      if (cont >= 670) {
+        console.log(cont)
+        this.apiService.create(element);
+      }
+      cont++;
+    });
+  }
+
+  salvarVarios() {
+    this.apiService.createVarios(this.dataJson);
   }
 
 }
