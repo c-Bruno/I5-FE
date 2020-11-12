@@ -51,14 +51,22 @@
                         </div>
 
 
-                        <button class="btn btn-dark ml-3 mt-3 pull-right"><i class="fas fa-check-circle"></i>Filtrar</button>
+                        <button class="btn btn-dark ml-3 mt-3 pull-right">Filtrar</button>
                         <input class="btn btn-dark ml-3 mt-3 pull-right" type="reset" value="Limpar">
                     </div>
                 </form>
             </div>
             <div class="chart col">
-                <button (click)="loadJson()">carregar json</button>
-                <button (click)="salvarVarios()">salvar murders</button>
+                <div style="display: block;">
+                    <canvas baseChart
+                       [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                    </canvas>
+                  </div>
             </div>
         </div>
     </div>
