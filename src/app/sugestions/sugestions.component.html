@@ -1,1 +1,41 @@
-<p>sugestions works!</p>
+<div class="d-flex background">
+    <div class="center">
+        <h3 class="d-flex justify-content-between">O que podemos melhorar em uma futura versão? Deixe-nos sua sugestão.</h3>
+        <div class="body">
+            <form [formGroup]="itemForm">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label>Email: </label>
+                        <input class="form-control" type="text" maxlength="100" formControlName="email" placeholder="Ex: email@email.com">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Profissão: </label>
+                        <input class="form-control" type="text" maxlength="100" formControlName="profissao" placeholder="Ex: Estudante">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Data: </label>
+                        <input class="form-control" type="date" maxlength="100" formControlName="data">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label>Qual o motivo da sua visita: </label>
+                        <ng-select formControlName="motivo"  name="motivo" placeholder="Selecione uma opção">
+                            <ng-option *ngFor="let motivo of motivos" [value]="motivo.name">{{ motivo.name }}</ng-option>
+                         </ng-select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label>Digite sua sugestão:</label>
+                    <textarea class="md-textarea form-group col-md-12" rows="8" placeholder="  Comece a digitar..."></textarea>
+                </div> 
+
+                <div>
+                    <button class="btn btn-dark ml-3 mt-3 pull-right"><i class="fas fa-check-circle"></i>Envir sugestão</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+</div>
