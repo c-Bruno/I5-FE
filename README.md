@@ -25,8 +25,8 @@ npm install -g @angular/cli@6.1.1
 
 ## Get started
 ```shell
-git clone https://github.com/extensao-pucc/recycle-FE.git
-cd recycle-FE
+git clone https://github.com/c-Bruno/I5-FE.git
+cd I5-FE
 ```
 ### Install npm packages
 
