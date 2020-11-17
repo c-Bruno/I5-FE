@@ -3,7 +3,7 @@
 </h1>
 
 <div>
-  <img src="https://github.com/c-Bruno/I5-FE/blob/main/src/assets/imgs/logocompleto.fw.png" alt="logo-i5" height="350"> 
+  <img src="https://github.com/c-Bruno/I5-FE/blob/main/src/assets/imgs/logocompleto.fw.png" alt="logo-i5" height="200"> 
 </div>
 
 ## Installation
