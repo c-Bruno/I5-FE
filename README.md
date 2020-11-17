@@ -1,8 +1,4 @@
-<h1 align="center">
-<br> I5 <br>
-</h1>
-
-<div>
+<div align="center">
   <img src="https://github.com/c-Bruno/I5-FE/blob/main/src/assets/imgs/logocompleto.fw.png" alt="logo-i5" height="200"> 
 </div>
 
