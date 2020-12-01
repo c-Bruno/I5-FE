@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedVariableService } from '../shared/shared-variable.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { ApiService } from '../shared/api.service';
-import { from } from 'rxjs';
 
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Label } from 'ng2-charts';
+import { Color, Label, SingleDataSet, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 
 @Component({
   selector: 'app-charts',
@@ -14,44 +13,70 @@ import { Label } from 'ng2-charts';
 })
 export class ChartsComponent implements OnInit {
 
+  // barra ==================================================================================================
   public barChartOptions: ChartOptions = {
     responsive: true,
   };
-  public barChartLabels: Label[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+  public barChartLabels: Label[] = ['2017', '2018', '2019'];
   public barChartType: ChartType = 'bar';
   public barChartLegend = true;
   public barChartPlugins = [];
-
   public barChartData: ChartDataSets[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [942, 779, 804], label: 'Feminino' },
+    { data: [8528, 6864, 7038], label: 'Masculino' },
+    { data: [4175, 1927, 2066], label: 'Não Identificado' }
   ];
+
+  // linha ==================================================================================================
+  public lineChartData: ChartDataSets[] = [
+    { data: [868, 748, 932, 833, 760, 692, 714, 853, 690, 944, 872, 1018], label: '2019' },
+  ];
+  public lineChartLabels: Label[] = ['Janeira', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  public lineChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,0,0,0.3)',
+    },
+  ];
+  public lineChartLegend = true;
+  public lineChartType = 'line';
+  public lineChartPlugins = [];
+
+  // pizza ==================================================================================================
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public pieChartLabels: Label[] = [['Amarela'], ['Branca'], ['Parda'], ['Preta'], ['Outros'], ['Não definida']];
+  public pieChartData: SingleDataSet = [15, 3237, 3571, 724, 27, 1996];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
 
   public meses: any;
   public anos: any;
   public estados: any;
   public sexos: any;
-  public itemForm: any;
 
-  //testes json
-  public dataJson: any;
+  public itemForm: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private sharedVariableService: SharedVariableService,
     private apiService: ApiService
   ) {
+    monkeyPatchChartJsTooltip();
+    monkeyPatchChartJsLegend();
     this.meses = this.sharedVariableService.getMes();
     this.anos = this.sharedVariableService.getAno();
     this.estados = this.sharedVariableService.getStates();
     this.sexos = this.sharedVariableService.getSexo();
-
-
-    
   }
 
   ngOnInit(): void {
-  this.loadForm();
+    this.loadForm();
   }
 
   loadForm(): void {
@@ -68,25 +93,12 @@ export class ChartsComponent implements OnInit {
     });
   }
 
-  loadJson(): void {
-    this.apiService.getJSON().subscribe(data => {
-      this.dataJson = data;
-    });
+  createChart(): void {
+    console.log(this.itemForm);
   }
 
-  salvar() {
-    let cont = 1;
-    this.dataJson.forEach(element => {
-      if (cont >= 670) {
-        console.log(cont)
-        this.apiService.create(element);
-      }
-      cont++;
-    });
-  }
-
-  salvarVarios() {
-    this.apiService.createVarios(this.dataJson);
+  resetFilters(): void {
+    this.loadForm();
   }
 
 }

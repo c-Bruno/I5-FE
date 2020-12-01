@@ -22,7 +22,8 @@ export class SharedVariableService {
   getSexo(): any[]{
     const sexos = [
       { sexo: 'Feminino' },
-      { sexo: 'Masculino'}
+      { sexo: 'Masculino'},
+      { sexo: 'Não Identificado'}
     ];
     return sexos;
   }
@@ -47,16 +48,85 @@ export class SharedVariableService {
 
   getAno(): any[]{
     const anos = [
-      // { ano : 2012 },
-      // { ano : 2013 },
-      // { ano : 2014 },
-      // { ano : 2015 },
-      // { ano : 2016 },
       { ano : 2017 },
       { ano : 2018 },
       { ano : 2019 },
     ];
     return anos;
+  }
+
+  getPeriodo(): any[]{
+    const periodos = [
+      { periodo : 'PELA MANHÃ' },
+      { periodo : 'A TARDE' },
+      { periodo : 'A NOITE' },
+      { periodo : 'DE MADRUGADA' },
+      { periodo : 'EM HORA INCERTA' },
+    ];
+    return periodos;
+  }
+
+  getFlagrante(): any[]{
+    const flagrantes = [
+      { flagrante : 'Sim' },
+      { flagrante : 'Não' },
+    ];
+    return flagrantes;
+  }
+
+  getDescricaoLocal(): any[]{
+    const descricaoLocais = [
+      { local : 'Area não ocupada' },
+      { local : 'Comércio e serviços' },
+      { local : 'Condominio Residencial' },
+      { local : 'Estabelecimento Bancario' },
+      { local : 'Estabelecimento Prisional' },
+      { local : 'Favela' },
+      { local : 'Lazer e recreação' },
+      { local : 'Repartição publica' },
+      { local : 'Residência' },
+      { local : 'Restalrante e afins' },
+      { local : 'Rodovia/Estrada' },
+      { local : 'Area de saúde' },
+      { local : 'Serviços e bens púvlicos' },
+      { local : 'Terminal/Estação' },
+      { local : 'Unidade reural' },
+      { local : 'Via pública' }
+    ];
+    return descricaoLocais;
+  }
+
+  getGrauInstrucao(): any[]{
+    const grauInstrucoes = [
+      { grau : '1 Grau completo' },
+      { grau : '1 Grau incompleto' },
+      { grau : '2 Grau completo' },
+      { grau : '2 Grau incompleto' },
+      { grau : 'Analfabeto' },
+      { grau : 'Superior completo' },
+    ];
+    return grauInstrucoes;
+  }
+
+  getCor(): any[]{
+    const cores = [
+      { cor : 'Amarela' },
+      { cor : 'Branca' },
+      { cor : 'Parda' },
+      { cor : 'Preta' },
+      { cor : 'Outros' },
+      { cor : 'Não definida' },
+    ];
+    return cores;
+  }
+
+  getIdade(): any[]{
+    const idades = [
+      { idade : 'Jovem' },
+      { idade : 'Adulto' },
+      { idade : 'Idoso' }
+    ];
+    return idades;
   }
 
   getStates(): any[]{

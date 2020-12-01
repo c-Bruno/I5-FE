@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedVariableService } from '../shared/shared-variable.service';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { ApiService } from '../shared/api.service';
 
 @Component({
   selector: 'app-sugestions',
@@ -15,6 +16,7 @@ export class SugestionsComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private sharedVariableService: SharedVariableService,
+    private apiService: ApiService
   ) {
     this.motivos = this.sharedVariableService.getMotivos();
    }
@@ -29,7 +31,20 @@ export class SugestionsComponent implements OnInit {
       profissao: [''],
       data: [''],
       motivo: [null],
+      sugestao: ['']
     });
   }
 
+  sendForm(): void {
+    const sugestion = {
+      email: this.itemForm.controls.email.value,
+      profissao: this.itemForm.controls.profissao.value,
+      data: this.itemForm.controls.data.value,
+      motivo: this.itemForm.controls.motivo.value,
+      sugestao: this.itemForm.controls.sugestao.value
+    };
+    this.apiService.sendSugestion(sugestion).subscribe(resp => {
+      console.log(resp);
+    });
+  }
 }

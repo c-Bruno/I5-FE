@@ -5,17 +5,17 @@
                 <form [formGroup]="itemForm">
                     <div class="">
                         <h4>Personalize sua busca:</h4>
-
+                        
                         <div class="form-group col-md-10">
-                            <ng-select formControlName="mes" name="mes" placeholder="Mês">
-                                <ng-option *ngFor="let mes of meses" [value]="mes.mes">{{ mes.mes }}</ng-option>
-                             </ng-select>
+                            <ng-select formControlName="ano" name="ano" placeholder="Ano emição BO">
+                                <ng-option *ngFor="let ano of anos" [value]="ano.ano">{{ ano.ano }}</ng-option>
+                            </ng-select>
                         </div>
 
                         <div class="form-group col-md-10">
-                            <ng-select formControlName="ano" name="ano" placeholder="Ano">
-                                <ng-option *ngFor="let ano of anos" [value]="ano.ano">{{ ano.ano }}</ng-option>
-                             </ng-select>
+                            <ng-select formControlName="mes" name="mes" placeholder="Mês emição BO">
+                                <ng-option *ngFor="let mes of meses" [value]="mes.mes">{{ mes.mes }}</ng-option>
+                                </ng-select>
                         </div>
 
                         <div class="form-group col-md-10">
@@ -51,13 +51,14 @@
                         </div>
 
 
-                        <button class="btn btn-dark ml-3 mt-3 pull-right">Filtrar</button>
-                        <input class="btn btn-dark ml-3 mt-3 pull-right" type="reset" value="Limpar">
+                        <button class="btn btn-dark ml-3 mt-3 pull-right" (click)="createChart()">Filtrar</button>
+                        <button class="btn btn-dark ml-3 mt-3 pull-right" (click)="resetFilters()">Limpar</button>
                     </div>
                 </form>
             </div>
             <div class="chart col">
-                <div style="display: block;">
+                <div class="back-chart" style="display: block;">
+                    <h2>Número de homicídio por gênero</h2>
                     <canvas baseChart
                        [datasets]="barChartData"
                         [labels]="barChartLabels"
@@ -66,7 +67,35 @@
                         [legend]="barChartLegend"
                         [chartType]="barChartType">
                     </canvas>
-                  </div>
+                </div>
+                    <br>
+                    <br>
+                <div class="back-chart" style="display: block;">
+                    <h2>Homicídio por mês do ano de 2019</h2>
+                    <canvas baseChart width="400" height="200"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
+                    <br>
+                    <br>
+                <div class="back-chart" style="display: block;">
+                    <h2>Número de homicídio por cor no ano de 2019</h2>
+                    <canvas baseChart 
+                        [data]="pieChartData" 
+                        [labels]="pieChartLabels" 
+                        [chartType]="pieChartType"
+                        [options]="pieChartOptions"
+                        [plugins]="pieChartPlugins"
+                        [legend]="pieChartLegend">
+                    </canvas>
+                </div>
+                  
             </div>
         </div>
     </div>

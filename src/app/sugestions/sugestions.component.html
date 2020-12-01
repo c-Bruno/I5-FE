@@ -29,12 +29,12 @@
 
                 <div class="form-row">
                     <label>Digite sua sugestão:</label>
-                    <textarea class="md-textarea form-group col-md-12" rows="8" placeholder="  Comece a digitar..."></textarea>
+                    <textarea class="md-textarea form-group col-md-12" formControlName="sugestao" rows="8" placeholder="  Comece a digitar..."></textarea>
                 </div> 
 
                 <div>
-                    <button class="btn btn-dark ml-3 mt-3 pull-right"><i class="fas fa-check-circle"></i>Enviar sugestão</button>
-                  </div>
+                    <button class="btn btn-dark ml-3 mt-3 pull-right" (click)="sendForm()"><i class="fas fa-check-circle"></i>Enviar sugestão</button>
+                </div>
             </form>
         </div>
     </div>
